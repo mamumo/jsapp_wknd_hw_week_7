@@ -43,3 +43,11 @@ var populateSelect = function (hpcharacters) {
         localStorage.setItem("selectedCharacter",JSON.stringify(character));
     });
 }
+
+var updateDisplay = function (lala) {
+    var tags = document.querySelectorAll('#info p');
+    tags[0].innerText = lala.name;
+    tags[1].innerText = lala.house;
+    tags[2].innerText = lala.patronus;
+    tags[3].innerText = lala.actor;
+}
