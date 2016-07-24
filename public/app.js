@@ -1,5 +1,7 @@
 
 window.onload = function () {
+
+
     var url = 'http://hp-api.herokuapp.com/api/characters'
     var request = new XMLHttpRequest();
     request.open("GET", url);
@@ -7,10 +9,12 @@ window.onload = function () {
         if (request.status === 200) {
             var jsonString = request.responseText;
             var hpcharacters = JSON.parse(jsonString);
+
             main(hpcharacters);
         }
     }
     request.send();
+    
 
 };
 
@@ -44,10 +48,10 @@ var populateSelect = function (hpcharacters) {
     });
 }
 
-var updateDisplay = function (lala) {
+var updateDisplay = function (character) {
     var tags = document.querySelectorAll('#info p');
-    tags[0].innerText = lala.name;
-    tags[1].innerText = lala.house;
-    tags[2].innerText = lala.patronus;
-    tags[3].innerText = lala.actor;
+    tags[0].innerText = "You have choosen " + character.name + "!";
+    tags[1].innerText = character.name + " belongs to the house of  " + character.house + ".";
+    tags[2].innerText = "Their patronus is a " + character.patronus;
+    tags[3].innerText = character.actor + " is the actor who plays " + character.name + " in the film version.";
 }
